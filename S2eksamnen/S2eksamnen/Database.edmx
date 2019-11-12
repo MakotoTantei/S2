@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="S2eksamenModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ansatte">
+          <Key>
+            <PropertyRef Name="Medarbejderid" />
+          </Key>
+          <Property Name="Medarbejderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Navn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefonnr" Type="int" Nullable="false" />
+          <Property Name="Løn" Type="money" Nullable="false" />
+          <Property Name="Jobtype" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dommerlevel" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spillere">
+          <Key>
+            <PropertyRef Name="SpillerId" />
+          </Key>
+          <Property Name="SpillerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Navn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="In-game name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Telefonnummer" Type="int" Nullable="false" />
+          <Property Name="Turneringstype" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sponsorer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Firmanavn" Type="varchar" MaxLength="50" />
+          <Property Name="Branche" Type="varchar" MaxLength="50" />
+          <Property Name="SpillerID" Type="int" />
+          <Property Name="Spillernavn" Type="varchar" MaxLength="50" />
+          <Property Name="Udgift" Type="money" />
+        </EntityType>
+        <EntityType Name="Turneringer">
+          <Key>
+            <PropertyRef Name="Turneringsid" />
+          </Key>
+          <Property Name="Turneringsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Turneringsnavn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SpillerID" Type="int" Nullable="false" />
+          <Property Name="Spillernavn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefonnummer" Type="int" Nullable="false" />
+          <Property Name="DommerID" Type="int" Nullable="false" />
+          <Property Name="Dommernavn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dommertelefon" Type="int" Nullable="false" />
+          <Property Name="Dommerlevel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="S2eksamenModel1StoreContainer">
+          <EntitySet Name="Ansatte" EntityType="Self.Ansatte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spillere" EntityType="Self.Spillere" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sponsorer" EntityType="Self.Sponsorer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turneringer" EntityType="Self.Turneringer" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="S2eksamenModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ansatte">
+          <Key>
+            <PropertyRef Name="Medarbejderid" />
+          </Key>
+          <Property Name="Medarbejderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Navn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefonnr" Type="Int32" Nullable="false" />
+          <Property Name="Løn" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Jobtype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dommerlevel" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spillere">
+          <Key>
+            <PropertyRef Name="SpillerId" />
+          </Key>
+          <Property Name="SpillerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Navn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="In_game_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Telefonnummer" Type="Int32" Nullable="false" />
+          <Property Name="Turneringstype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sponsorer">
+          <Key>
+            <PropertyRef Name="SponsorId" />
+          </Key>
+          <Property Name="SponsorId" Type="Int32" Nullable="false" />
+          <Property Name="Firmanavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Branche" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpillerID" Type="Int32" />
+          <Property Name="Spillernavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Udgift" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Turneringer">
+          <Key>
+            <PropertyRef Name="Turneringsid" />
+          </Key>
+          <Property Name="Turneringsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Turneringsnavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpillerID" Type="Int32" Nullable="false" />
+          <Property Name="Spillernavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefonnummer" Type="Int32" Nullable="false" />
+          <Property Name="DommerID" Type="Int32" Nullable="false" />
+          <Property Name="Dommernavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dommertelefon" Type="Int32" Nullable="false" />
+          <Property Name="Dommerlevel" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="S2eksamenEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ansatte" EntityType="Self.Ansatte" />
+          <EntitySet Name="Spillere" EntityType="Self.Spillere" />
+          <EntitySet Name="Sponsorer" EntityType="Self.Sponsorer" />
+          <EntitySet Name="Turneringer" EntityType="Self.Turneringer" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="S2eksamenModel1StoreContainer" CdmEntityContainer="S2eksamenEntities1">
+          <EntitySetMapping Name="Ansatte">
+            <EntityTypeMapping TypeName="S2eksamenModel1.Ansatte">
+              <MappingFragment StoreEntitySet="Ansatte">
+                <ScalarProperty Name="Medarbejderid" ColumnName="Medarbejderid" />
+                <ScalarProperty Name="Navn" ColumnName="Navn" />
+                <ScalarProperty Name="Telefonnr" ColumnName="Telefonnr" />
+                <ScalarProperty Name="Løn" ColumnName="Løn" />
+                <ScalarProperty Name="Jobtype" ColumnName="Jobtype" />
+                <ScalarProperty Name="Dommerlevel" ColumnName="Dommerlevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spillere">
+            <EntityTypeMapping TypeName="S2eksamenModel1.Spillere">
+              <MappingFragment StoreEntitySet="Spillere">
+                <ScalarProperty Name="SpillerId" ColumnName="SpillerId" />
+                <ScalarProperty Name="Navn" ColumnName="Navn" />
+                <ScalarProperty Name="In_game_name" ColumnName="In-game name" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Telefonnummer" ColumnName="Telefonnummer" />
+                <ScalarProperty Name="Turneringstype" ColumnName="Turneringstype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sponsorer">
+            <EntityTypeMapping TypeName="S2eksamenModel1.Sponsorer">
+              <MappingFragment StoreEntitySet="Sponsorer">
+                <ScalarProperty Name="SponsorId" ColumnName="Id" />
+                <ScalarProperty Name="Firmanavn" ColumnName="Firmanavn" />
+                <ScalarProperty Name="Branche" ColumnName="Branche" />
+                <ScalarProperty Name="SpillerID" ColumnName="SpillerID" />
+                <ScalarProperty Name="Spillernavn" ColumnName="Spillernavn" />
+                <ScalarProperty Name="Udgift" ColumnName="Udgift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turneringer">
+            <EntityTypeMapping TypeName="S2eksamenModel1.Turneringer">
+              <MappingFragment StoreEntitySet="Turneringer">
+                <ScalarProperty Name="Turneringsid" ColumnName="Turneringsid" />
+                <ScalarProperty Name="Turneringsnavn" ColumnName="Turneringsnavn" />
+                <ScalarProperty Name="SpillerID" ColumnName="SpillerID" />
+                <ScalarProperty Name="Spillernavn" ColumnName="Spillernavn" />
+                <ScalarProperty Name="Telefonnummer" ColumnName="Telefonnummer" />
+                <ScalarProperty Name="DommerID" ColumnName="DommerID" />
+                <ScalarProperty Name="Dommernavn" ColumnName="Dommernavn" />
+                <ScalarProperty Name="Dommertelefon" ColumnName="Dommertelefon" />
+                <ScalarProperty Name="Dommerlevel" ColumnName="Dommerlevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
